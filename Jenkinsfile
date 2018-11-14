@@ -25,7 +25,7 @@ node {
             }else{
                  rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --clientid ${consumer_key} --username ${hub_org} --jwtkeyfile \"${jwt_key_file}\" --setdefaultusername --setalias qa --instanceurl ${QA_SFDC_HOST}"
             }
-            if (rc != 0) { error 'Connection failed' } 
+            if (rc != 0) { error 'Connection failed' }
             
         }
         
