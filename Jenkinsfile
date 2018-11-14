@@ -19,7 +19,7 @@ node {
    //}
 
     withCredentials([file(credentialsId: QA_JWT_KEY_CRED_ID, variable: 'jwt_key_file'), string(credentialsId: QA_CONNECTED_APP_CONSUMER_KEY, variable: 'consumer_key'), string(credentialsId: QA_HUB_ORG, variable: 'hub_org')]) {
-        stage('Connect to QA') {
+        stage('Connect to QA') { 
             if (isUnix()) {
                 rc = sh returnStatus: true, script: "${toolbelt} force:auth:jwt:grant --clientid ${consumer_key} --username ${hub_org} --jwtkeyfile ${jwt_key_file} --setalias qa --instanceurl ${QA_SFDC_HOST}"
             }else{
