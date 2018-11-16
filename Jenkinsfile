@@ -20,10 +20,6 @@ def total = 0
 def failed = 0
 def skipped = 0
 
-def scmVars = checkout scm
-def commitHash = scmVars.GIT_COMMIT
-
-echo "Commit Hash: ${commitHash}"
 echo "Branch Name: ${env.BRANCH_NAME}"
 
 def isPublishingBranch = { ->
@@ -106,7 +102,11 @@ def populateGlobalVariables = {
 node {
     try {
         stage('Checkout') {
-            checkout scm
+            //checkout scm
+            def scmVars = checkout scm
+            def commitHash = scmVars.GIT_COMMIT
+
+            echo "Commit Hash: ${commitHash}"
         }
 
         stage('Build') {
