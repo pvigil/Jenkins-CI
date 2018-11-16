@@ -14,7 +14,7 @@ def notifySlack(text, channel, attachments) {
         attachments: attachments
     ])
 
-    slackSend(payload.toString())
+    slackSend payload.toString()
     //sh "curl -X POST --data-urlencode \'payload=${payload}\' ${slackURL}"
 }
 
