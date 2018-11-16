@@ -16,3 +16,9 @@ def notifySlack(text, channel, attachments) {
 
     sh "curl -X POST --data-urlencode \'payload=${payload}\' ${slackURL}"
 }
+
+node {
+    stage("Post to Slack") {
+        notifySlack("Success!", slackNotificationChannel, [])
+    }
+}
