@@ -9,6 +9,6 @@ node {
     attachment.put('fallback','Hey, Vader seems to be mad at you.');
     attachment.put('color','#ff0000');
 
-    attachments.add(attachment);
+    attachments.add(attachment); 
     slackSend(color: '#00FF00', channel: '@gustavo.maia', attachments: attachments.toString())
 }
