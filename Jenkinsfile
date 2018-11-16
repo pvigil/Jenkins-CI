@@ -1,25 +1,14 @@
 #!groovy
-import groovy.json.JsonOutput
-
-def slackNotificationChannel = 'team-pge'     // ex: = "builds" 
-
-def notifySlack(text, channel, attachments) {
-    def slackURL = 'https://modelituy.slack.com/services/hooks/jenkins-ci'
-    def jenkinsIcon = 'https://wiki.jenkins-ci.org/download/attachments/2916393/logo.png'
-
-    def payload = JsonOutput.toJson([text: text,
-        channel: channel,
-        username: "Jenkins",
-        icon_url: jenkinsIcon,
-        attachments: attachments
-    ])
-
-    slackSend payload.toString()
-    //sh "curl -X POST --data-urlencode \'payload=${payload}\' ${slackURL}"
-}
-
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 node {
-    stage("Post to Slack") {
-        notifySlack("Success!", slackNotificationChannel, [])
-    }
+    JSONArray attachments = new JSONArray();
+    JSONObject attachment = new JSONObject();
+
+    attachment.put('text','I find your lack of faith disturbing!');
+    attachment.put('fallback','Hey, Vader seems to be mad at you.');
+    attachment.put('color','#ff0000');
+
+    attachments.add(attachment);
+    slackSend(color: '#00FF00', channel: '@gustavo.maia', attachments: attachments.toString())
 }
