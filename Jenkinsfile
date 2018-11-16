@@ -1,6 +1,6 @@
 #!groovy
 import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
+import net.sf.json.JSONObject
 node {
     JSONArray attachments = new JSONArray();
     JSONObject attachment = new JSONObject();
