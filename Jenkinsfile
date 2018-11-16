@@ -10,5 +10,5 @@ node {
     attachment.put('color','#ff0000');
 
     attachments.add(attachment); 
-    slackSend(color: '#00FF00', channel: '@gustavo.maia', attachments: attachments.toString())
+    slackSend(color: '#00FF00', channel: 'team-pge', attachments: attachments.toString())
 }
