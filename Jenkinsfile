@@ -20,6 +20,8 @@ def total = 0
 def failed = 0
 def skipped = 0
 
+echo "Branch Name: ${env.GIT_BRANCH}"
+
 def isPublishingBranch = { ->
     return env.GIT_BRANCH == 'origin/master' || env.GIT_BRANCH =~ /release.+/
 }
