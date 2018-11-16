@@ -20,6 +20,10 @@ def total = 0
 def failed = 0
 def skipped = 0
 
+def scmVars = checkout scm
+def commitHash = scmVars.GIT_COMMIT
+
+echo "Commit Hash: ${commitHash}"
 echo "Branch Name: ${env.BRANCH_NAME}"
 
 def isPublishingBranch = { ->
