@@ -1,7 +1,7 @@
 #!groovy
 import groovy.json.JsonOutput
 
-def slackNotificationChannel = 'team-pge'     // ex: = "builds"
+def slackNotificationChannel = 'team-pge'     // ex: = "builds" 
 
 def notifySlack(text, channel, attachments) {
     def slackURL = 'https://modelituy.slack.com/services/hooks/jenkins-ci'
