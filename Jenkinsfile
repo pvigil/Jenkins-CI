@@ -39,7 +39,7 @@ def notifySlack(text, channel, attachments) {
         attachments: attachments
     ])
 
-    slackSend(color: '#00FF00', channel: 'team-pge', attachments: attachments)
+    slackSend(color: '#00FF00', channel: 'team-pge', attachments: JsonOutput.toJson(attachments))
     //sh "curl -X POST --data-urlencode \'payload=${payload}\' ${slackURL}"
 }
 
