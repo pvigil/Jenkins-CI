@@ -7,7 +7,7 @@ import hudson.model.Actionable
 import hudson.tasks.junit.CaseResult
 
 def speedUp = '--configure-on-demand --daemon --parallel'
-def nebulaReleaseScope = (env.GIT_BRANCH == 'origin/master') ? '' : "-Prelease.scope=patch"
+def nebulaReleaseScope = (env.BRANCH_NAME == 'origin/master') ? '' : "-Prelease.scope=patch"
 def nebulaRelease = "-x prepare -x release snapshot ${nebulaReleaseScope}"
 def gradleDefaultSwitches = "${speedUp} ${nebulaRelease}"
 def gradleAdditionalTestTargets = "integrationTest"
@@ -20,10 +20,10 @@ def total = 0
 def failed = 0
 def skipped = 0
 
-echo "Branch Name: ${env.GIT_BRANCH}"
+echo "Branch Name: ${env.BRANCH_NAME}"
 
 def isPublishingBranch = { ->
-    return env.GIT_BRANCH == 'origin/master' || env.GIT_BRANCH =~ /release.+/
+    return env.BRANCH_NAME == 'origin/master' || env.BRANCH_NAME =~ /release.+/
 }
 
 def isResultGoodForPublishing = { ->
