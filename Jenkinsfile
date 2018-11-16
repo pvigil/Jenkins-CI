@@ -21,6 +21,13 @@ def failed = 0
 def skipped = 0
 
 echo "Branch Name: ${env.BRANCH_NAME}"
+echo "Change Id: ${env.CHANGE_ID}"
+echo "Change Url: ${env.CHANGE_URL}"
+echo "Change Title: ${env.CHANGE_TITLE}"
+echo "Change Author: ${env.CHANGE_AUTHOR}"
+echo "Change Author Display Name: ${env.CHANGE_AUTHOR_DISPLAY_NAME}"
+echo "Change Target: ${env.CHANGE_TARGET}"
+
 
 def isPublishingBranch = { ->
     return env.BRANCH_NAME == 'origin/master' || env.BRANCH_NAME =~ /release.+/
