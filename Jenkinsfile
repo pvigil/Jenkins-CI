@@ -80,7 +80,7 @@ def getTestSummary = { ->
     return summary
 }
 
-@NonCPS
+@NonCPS 
 def getFailedTests = { ->
     def testResultAction = currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
     def failedTestsString = "```"
