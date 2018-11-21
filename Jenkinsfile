@@ -179,7 +179,7 @@ node {
                         color: "${buildColor}",
                         author_name: "jenkins",
                         //author_name: "${author}",
-                        text: "${buildStatus}\n",
+                        text: "${buildStatus}\n\n",
                         fields: [
                            [
                                 title: "Author",
