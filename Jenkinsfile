@@ -177,15 +177,10 @@ node {
                         title: "${jobName}, build #${env.BUILD_NUMBER}",
                         title_link: "${env.BUILD_URL}",
                         color: "${buildColor}",
-                        author_name: "jenkins",
-                        //author_name: "${author}",
-                        text: "${buildStatus}\n\n",
+                        //author_name: "jenkins",
+                        author_name: "${author}",
+                        text: "${buildStatus}\n",
                         fields: [
-                           [
-                                title: "Author",
-                                value: "${author}",
-                                short: false
-                            ],
                             [
                                 title: "Branch",
                                 value: "${env.BRANCH_NAME}",
