@@ -179,16 +179,16 @@ node {
                         color: "${buildColor}",
                         author_name: "jenkins",
                         //author_name: "${author}",
-                        text: "${buildStatus}\n${author}",
+                        text: "${buildStatus}\n",
                         fields: [
+                           [
+                                title: "Author",
+                                value: "${author}",
+                                short: false
+                            ],
                             [
                                 title: "Branch",
                                 value: "${env.BRANCH_NAME}",
-                                short: true
-                            ],
-                            [
-                                title: "Author",
-                                value: "${author}",
                                 short: true
                             ],
                             [
