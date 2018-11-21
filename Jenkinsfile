@@ -27,8 +27,8 @@ echo "Change Title: ${env.CHANGE_TITLE}"
 echo "Change Author: ${env.CHANGE_AUTHOR}"
 echo "Change Author Display Name: ${env.CHANGE_AUTHOR_DISPLAY_NAME}"
 echo "Change Target: ${env.CHANGE_TARGET}"
-echo "Run Display Url": ${env.RUN_DISPLAY_URL}
-echo "Run Changes Display Url": ${env.RUN_CHANGES_DISPLAY_URL}
+echo "Run Display Url: ${env.RUN_DISPLAY_URL}"
+echo "Run Changes Display Url: ${env.RUN_CHANGES_DISPLAY_URL}"
 
 
 def isPublishingBranch = { ->
