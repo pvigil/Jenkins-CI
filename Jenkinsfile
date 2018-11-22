@@ -31,12 +31,12 @@ node {
         
         stage('Run Apex Test') {
             sh "mkdir -p ${RUN_ARTIFACT_DIR}"
-            timeout(time: 120, unit: 'SECONDS') {
-   	            rc = sh returnStatus: true, script: "${toolbelt} force:apex:test:run --testlevel RunLocalTests --outputdir ${RUN_ARTIFACT_DIR} --resultformat tap -u qa"
+            //timeout(time: 120, unit: 'SECONDS') {
+   	            rc = sh returnStatus: true, script: "${toolbelt} force:apex:test:run --testlevel RunLocalTests --outputdir ${RUN_ARTIFACT_DIR} --resultformat tap -u qa -w -1"
 	            if (rc != 0) {
 		            error 'apex test run failed'
 	            }
-            }
+            //}
         }
         
         stage('collect results') {
