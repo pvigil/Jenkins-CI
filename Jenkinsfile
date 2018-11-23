@@ -39,9 +39,7 @@ node {
             //}
         }
         
-        stage('collect results') {
-            //junit keepLongStdio: true, testResults: 'tests/**/*-junit.xml'
-        }*/
+        */
         
           stage('Deploy to QA') {
               if (isUnix()) {
