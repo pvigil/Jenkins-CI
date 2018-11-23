@@ -29,7 +29,7 @@ node {
             
         }
         
-        stage('Run Apex Test') {
+        /*stage('Run Apex Test') {
             sh "mkdir -p ${RUN_ARTIFACT_DIR}"
             //timeout(time: 120, unit: 'SECONDS') {
    	            rc = sh returnStatus: true, script: "${toolbelt} force:apex:test:run --testlevel RunLocalTests --outputdir ${RUN_ARTIFACT_DIR} --resultformat tap -y -u qa -w 50"
@@ -41,19 +41,20 @@ node {
         
         stage('collect results') {
             junit keepLongStdio: true, testResults: 'tests/**/*-junit.xml'
-        }
+        }*/
         
-          /*stage('Deploy to QA') {
+          stage('Deploy to QA') {
               if (isUnix()) {
-                    rc = sh returnStatus: true, script: "${toolbelt} force:mdapi:deploy -d ./ -u qa -l RunLocalTests -w -1"
+                    rc = sh returnStatus: true, script: "${toolbelt} force:mdapi:deploy -d ./ -u qa -w -1"
               }else{
                   rc = bat returnStatus: true, script: "\"${toolbelt}\" force:mdapi:deploy -d ./ -u qa -l RunLocalTests -w -1"
               }
+		  echo rc
             if (rc != 0) {
                 error 'Deploy failed'
             }
             
-          }*/
+          }
              
     }
 } 
