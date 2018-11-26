@@ -47,7 +47,7 @@ node {
               }else{
                   rc = bat returnStatus: true, script: "\"${toolbelt}\" force:mdapi:deploy -d ./ -u qa -l RunLocalTests -w -1"
               }
-		  echo rc
+		  echo currentBuild.getRawBuild().getLog()
             if (rc != 0) {
                 error 'Deploy failed'
             }
